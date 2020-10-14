@@ -1,6 +1,6 @@
 [credential]
 	helper = cache
 	protocol=http
-	host=
-	username=
+	host=github.com/Furinkazan33
+	username=Furinkazan33
 	
