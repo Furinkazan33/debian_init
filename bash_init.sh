@@ -15,11 +15,13 @@
 #######################################
 # Configuring locales
 #######################################
+echo "Configuring locales..."
 sudo dpkg-reconfigure locales
 
 #######################################
 # Copying config files
 #######################################
+echo "Copying config files..."
 for file in `ls -A ./config`; do
     cp ./config/$file ~/
 done
@@ -27,12 +29,14 @@ done
 #######################################
 # .bashrc and .bash_aliases
 #######################################
+echo "Creating aliases..."
 [ ! -f ~/.bashrc ] && touch ~/.bashrc
 grep -q ". ~/.bash_aliases" ~/.bashrc || echo ". ~/.bash_aliases" >> ~/.bashrc
 
 #######################################
 # Packages installations
 #######################################
+echo "Installing packages..."
 . ./lib/install.sh
 
 # Packages list
