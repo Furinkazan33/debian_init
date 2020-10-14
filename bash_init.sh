@@ -10,23 +10,25 @@
 # Usages and parameters check
 #######################################
 . ./lib/usages.sh
-
-#######################################
-# Adding aliases
-#######################################
-. ./lib/aliases.sh
-
-#######################################
-# Configuring locales
-#######################################
-sudo dpkg-reconfigure locales
+[ "$0" = "$BASH_SOURCE" ] || { not_executed; return 1; }
 
 #######################################
 # Copying config files
 #######################################
 for file in `ls -A ./config`; do
-    cp "./config/$file" "~/$file"
+    cp ./config/$file ~/
 done
+
+#######################################
+# .bashrc and .bash_aliases
+#######################################
+[ ! -f ~/.bashrc ] && touch ~/.bashrc
+grep -q ". ~/.bash_aliases" ~/.bashrc || echo ". ~/.bash_aliases" >> ~/.bashrc
+
+#######################################
+# Configuring locales
+#######################################
+sudo dpkg-reconfigure locales
 
 #######################################
 # Packages installations
