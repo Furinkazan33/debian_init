@@ -34,3 +34,11 @@ ask_install "Visual Studio Code" "code"
     }
 
 ```
+### Execution result
+```
+$ ./bash_init.sh 
+Install Visual Studio Code ? (y/n)
+y
+code is already installed !
+...
+```
