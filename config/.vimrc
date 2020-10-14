@@ -81,10 +81,8 @@ vnoremap <F1> :set invfullscreen<CR>
 " Formatting
 map <leader>q gqip
 
-" Visualize tabs and newlines
+" Visualize tabs and newlines, enable by default, \ + l to toggle
 set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+set list
+map <leader>l :set list!<CR>
 
