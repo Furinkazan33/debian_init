@@ -1,6 +1,13 @@
 # bash_init
 bash script to initialize debian environments (locales, aliases, main config files, install packages ...)
 
+## Current config files :
+ - .bash_aliases
+ - .exrc
+ - .gitconfig
+ - .netrc
+ - .vimrc
+
 ## You can provide specific installations commands like following :
 ```
 # Test if "my_package" is in the packages list
