@@ -1,0 +1,6 @@
+[credential]
+	helper = cache
+	protocol=http
+	host=
+	username=
+	
