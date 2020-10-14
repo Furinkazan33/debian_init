@@ -13,6 +13,11 @@
 [ "$0" = "$BASH_SOURCE" ] || { not_executed; return 1; }
 
 #######################################
+# Configuring locales
+#######################################
+sudo dpkg-reconfigure locales
+
+#######################################
 # Copying config files
 #######################################
 for file in `ls -A ./config`; do
@@ -24,11 +29,6 @@ done
 #######################################
 [ ! -f ~/.bashrc ] && touch ~/.bashrc
 grep -q ". ~/.bash_aliases" ~/.bashrc || echo ". ~/.bash_aliases" >> ~/.bashrc
-
-#######################################
-# Configuring locales
-#######################################
-sudo dpkg-reconfigure locales
 
 #######################################
 # Packages installations
