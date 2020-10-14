@@ -4,15 +4,13 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load plugins here (pathogen or vundle)
-
 " Turn on syntax highlighting
 syntax on
 
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
+" Pick a leader key
 " let mapleader = ","
 
 " Security
@@ -89,5 +87,4 @@ set listchars=tab:▸\ ,eol:¬
 " set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
-
 
