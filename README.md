@@ -44,27 +44,29 @@ ask_install "Visual Studio Code" "code"
 ### Execution result
 ```
 $ ./bash_init.sh 
+=======================================
+= Starting environment initialisation =
+=======================================
+
 Configuring locales...
 Generating locales (this might take a while)...
   en_US.UTF-8... done
   fr_FR.UTF-8... done
 Generation complete.
+
 Copying config files...
+
 Creating aliases...
+
 Installing packages...
+
 Install Visual Studio Code ? (y/n)
 y
 code is already installed !
-Lecture des listes de paquets... Fait
-Construction de l'arbre des dépendances       
-Lecture des informations d'état... Fait
-gedit est déjà la version la plus récente (3.30.2-2).
-git est déjà la version la plus récente (1:2.20.1-2+deb10u3).
-vim est déjà la version la plus récente (2:8.1.0875-5).
-code est déjà la version la plus récente (1.50.0-1602051089).
-0 mis à jour, 0 nouvellement installés, 0 à enlever et 0 non mis à jour.
-Lecture des listes de paquets... Fait
-Construction de l'arbre des dépendances       
-Lecture des informations d'état... Fait
-0 mis à jour, 0 nouvellement installés, 0 à enlever et 0 non mis à jour.
+
+. . . default packages installation process occuring here . . .
+
+=========================================
+= Environment initialisation complete ! =
+=========================================
 ```
