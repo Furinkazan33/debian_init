@@ -7,16 +7,16 @@
 #############################################################
 
 not_bash() {
-    echo "Your Shell is not bash"
-    echo "This is a bash script file"
+    color_echo 0 RED "Your Shell is not bash"
+    color_echo 0 RED "This is a bash script file"
 }
 
 usage() {
-    echo "Usage: ./bash_init.sh"
+    color_echo 0 RED "Usage: ./bash_init.sh"
 }
 
 not_executed() {
-    echo "This file is intended to be executed not sourced !"
+    color_echo 0 RED "This file is intended to be executed not sourced !"
     usage
 }
 

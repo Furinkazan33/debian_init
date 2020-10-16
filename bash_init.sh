@@ -3,54 +3,61 @@
 # bash_init
 # Author : Mathieu Vidalies https://github.com/Furinkazan33
 #############################################################
-# Bash script to initialize environment
+# Bash script to initialize Debian environments
 #############################################################
 MY_HOME=~
 
 #######################################
-# Usages and parameters check
+# Sourcing files
 #######################################
 . ./lib/usages.sh
+. ./lib/colors.sh
+. ./lib/install.sh
+
+#######################################
+# Usages and parameters check
+#######################################
 [ "$0" = "$BASH_SOURCE" ] || { not_executed; return 1; }
 [ $# -ne 0 ] && { usage; exit 1; }
 
 #######################################
-# Configuring locales
+# Beginning of the script
 #######################################
-echo "Configuring locales..."
+echo
+color_echo 0 GREY "======================================="
+color_echo 0 GREY "= Starting environment initialisation ="
+color_echo 0 GREY "======================================="
+
+echo
+color_echo 0 PURPLE "Configuring locales..."
 sudo dpkg-reconfigure locales
 
-#######################################
-# Copying config files
-#######################################
-echo "Copying config files..."
+echo
+color_echo 0 PURPLE "Copying config files..."
 for file in `ls -A ./config`; do
     cp ./config/$file "${MY_HOME}"/
 done
 
-#######################################
-# .bashrc and .bash_aliases
-#######################################
-echo "Creating aliases..."
-[ ! -f "${MY_HOME}"/.bashrc ] && touch "${MY_HOME}"/.bashrc
-grep -q '\. ~/.bash_aliases' "${MY_HOME}"/.bashrc || echo ". ${MY_HOME}/.bash_aliases" >> "${MY_HOME}"/.bashrc
+echo
+color_echo 0 PURPLE "Editing .bashrc file..."
+grep '\. ~/.bash_aliases' "${MY_HOME}"/.bashrc &>/dev/null || echo ". ${MY_HOME}/.bash_aliases" >> "${MY_HOME}"/.bashrc
 
-#######################################
-# Packages installations
-#######################################
-echo "Installing packages..."
-. ./lib/install.sh
-
+echo
+color_echo 0 PURPLE "Installing packages..."
 # Adding packages
 add_packages gedit git
 add_packages vim
-
 # Adding specific installs (see ./lib/install.sh)
 ask_install "Visual Studio Code" "code"
 #ask_install <Description> <package_name>
 
 pre_install
-
 install_packages
-
 post_install
+
+echo
+color_echo 0 GREY "========================================="
+color_echo 0 GREY "= Environment initialisation complete ! ="
+color_echo 0 GREY "========================================="
+echo
+
