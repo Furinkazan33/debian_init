@@ -46,9 +46,11 @@ echo
 color_echo 0 PURPLE "Installing packages..."
 # Adding packages
 add_packages gedit git
-add_packages vim
-# Adding specific installs (see ./lib/install.sh)
-ask_install "Visual Studio Code" "code"
+add_packages vim vim-syntastic vim-fugitive
+
+# Optionnal installations (see ./lib/install.sh)
+ask_install "vim-plug from github" "vim-plug"
+ask_install "Visual Studio Code from microsoft" "code"
 #ask_install <Description> <package_name>
 
 pre_install

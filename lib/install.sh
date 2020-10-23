@@ -33,6 +33,7 @@ required() {
 }
 
 pre_install() {
+
     # vscode
     required "code" && {
         # test if installed
@@ -45,6 +46,47 @@ pre_install() {
         else
             color_echo 0 RED "code is already installed !"
         fi
+    }
+
+    required "vim-plug" && {
+        sudo apt-get install curl
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+        echo "" >> ~/.vimrc
+        echo "\" vim-plug" >> ~/.vimrc
+        echo "call plug#begin('~/.vim/plugged')" >> ~/.vimrc
+
+        echo "" >> ~/.vimrc
+        echo "\" fzf plugin" >> ~/.vimrc
+        echo "Plug 'junegunn/fzf'" >> ~/.vimrc
+        echo "map ; :FZF<CR>" >> ~/.vimrc
+
+        echo "" >> ~/.vimrc
+        echo "\" lightline plugin" >> ~/.vimrc
+        echo "Plug 'itchyny/lightline.vim'" >> ~/.vimrc
+
+        echo "" >> ~/.vimrc
+        echo "\" gitgutter plugin" >> ~/.vimrc
+        echo "Plug 'airblade/vim-gitgutter'" >> ~/.vimrc
+
+        echo "" >> ~/.vimrc
+        echo "call plug#end()" >> ~/.vimrc
+    }
+
+    required "vim-syntastic" && {
+        sudo apt-get install vim-syntastic
+        echo "" >> ~/.vimrc
+        echo "\" Syntastic options" >> ~/.vimrc
+        echo "set statusline+=%#warningmsg#" >> ~/.vimrc
+        echo "set statusline+=%{SyntasticStatuslineFlag()}" >> ~/.vimrc
+        echo "set statusline+=%*" >> ~/.vimrc
+        echo "let g:syntastic_always_populate_loc_list = 1" >> ~/.vimrc
+        echo "let g:syntastic_auto_loc_list = 1" >> ~/.vimrc
+        echo "let g:syntastic_check_on_open = 1" >> ~/.vimrc
+        echo "let g:syntastic_check_on_wq = 0" >> ~/.vimrc
+        echo "let g:syntastic_sh_checkers = ['shellcheck', 'sh']" >> ~/.vimrc
+        echo "let g:syntastic_shell = \"/bin/bash\"" >> ~/.vimrc
     }
 
     required "your_package" && {
@@ -61,6 +103,9 @@ install_packages() {
 }
 
 post_install() {
+    # Installing vim plugins
+    vim -c ":PlugInstall" 2> /dev/null &
+
     # Cleaning
     sudo apt autoremove
 }
