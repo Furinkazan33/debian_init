@@ -5,7 +5,8 @@ Customizable Bash script to initialize Debian environments (Debian, Ubuntu, Kali
 - easily extensible
 - initialize locales
 - initialize ~/.config files => you can add yours (.bash_aliases, .exrc, .gitconfig, .netrc, .vimrc, ...)
-- default packages installations => you can add your favorites packages
+- install packages from the defaults repositories
+- install packages from other sources
 - personnalized installations => you can add some commands to run before installation process
 ```
 # Test if "my_package" is in the packages list
