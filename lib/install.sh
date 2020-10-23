@@ -69,6 +69,7 @@ pre_install() {
         echo "" >> ~/.vimrc
         echo "\" gitgutter plugin" >> ~/.vimrc
         echo "Plug 'airblade/vim-gitgutter'" >> ~/.vimrc
+        echo "autocmd VimEnter * GitGutter" >> ~/.vimrc
 
         echo "" >> ~/.vimrc
         echo "call plug#end()" >> ~/.vimrc
