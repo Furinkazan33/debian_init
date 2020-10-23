@@ -6,17 +6,15 @@
 # Usages functions
 #############################################################
 
-not_bash() {
-    color_echo 0 RED "Your Shell is not bash"
-    color_echo 0 RED "This is a bash script file"
-}
-
 usage() {
-    color_echo 0 RED "Usage: ./bash_init.sh"
+    echo -e "\033[1;31m""Usage: ./debian_init.sh""\033[0m"
 }
 
 not_executed() {
-    color_echo 0 RED "This file is intended to be executed not sourced !"
-    usage
+    [ "$0" != "./debian_init.sh" ] && {
+        echo -e "\033[1;31m""This file is intended to be executed not sourced !""\033[0m"
+        usage
+        return 0
+    }
+    return 1
 }
-
