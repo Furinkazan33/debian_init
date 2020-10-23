@@ -1,14 +1,22 @@
 # bash_init
-bash script to initialize debian environments (locales, aliases, main config files, install packages ...)
+Customizable Bash script to initialize Debian environments (locales, aliases, main config files, install packages ...)
 
-## Current config files :
+## Features
+- easily extensible
+- initialize locales
+- initialize ~/.config files => you can add yours
+- default packages installations => you can choose wich packages to install
+- personnalized installations => you can add some commands to run before installation process
+- interactive menu => you can ask for what you want to install
+
+### Config files :
  - .bash_aliases
  - .exrc
  - .gitconfig
  - .netrc
  - .vimrc
 
-## You can provide specific installations commands like following :
+### You can add specific installations commands in the pre_install process
 ```
 # Test if "my_package" is in the packages list
 required "my_package" && {
@@ -18,12 +26,19 @@ required "my_package" && {
 
 For example, if you want to install Visual Studio Code, just do the followings :
 
-### Add this line to the bash_init script : 
+### You can ask for package installation
+```
+ask_install <description> <package_name>
+```
+
+## Example with Visual Studio Code
+
+### Add this line to the debian_init script
 ```
 ask_install "Visual Studio Code" "code"
 ```
 
-### Add these lines to the lib/install script :
+### Add these lines to the lib/install script
 ```
 # vscode
     required "code" && {
