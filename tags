@@ -1,0 +1,16 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+color_echo	lib/colors.sh	/^color_echo() {$/;"	f
+color_list	lib/colors.sh	/^color_list() {$/;"	f
+not_executed	debian_init.sh	/^not_executed() {$/;"	f
+not_executed	lib/usages.sh	/^not_executed() {$/;"	f
+package_add	lib/packages.sh	/^package_add() {$/;"	f
+package_ask	lib/packages.sh	/^package_ask() {$/;"	f
+package_required	lib/packages.sh	/^package_required() {$/;"	f
+post_install_add	lib/post_install.sh	/^post_install_add() {$/;"	f
+post_install_exec	lib/post_install.sh	/^post_install_exec() {$/;"	f
+usage	lib/usages.sh	/^usage() {$/;"	f

@@ -10,6 +10,23 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
+" Do not select numbers with mouse
+set mouse=a
+" Click detection
+map <xCSI>[62~ <MouseDown>
+
+" Finding files
+" :find with * and tab to make it fuzzy
+" :ls to list opened buffer
+" :b to switch between buffers
+set path+=**
+set wildmenu
+
+" Adding the MakeTags command
+" ctrl+[ on a word to jump to definition
+command! MakeTags !ctags -R .
+
+
 " Pick a leader key
 " let mapleader = ","
 
