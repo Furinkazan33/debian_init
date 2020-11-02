@@ -20,51 +20,6 @@ package_required "code" && {
     fi
 }
 
-package_required "vim-plug" && {
-    sudo apt-get install curl
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    echo "" >> ~/.vimrc
-    echo "\" vim-plug" >> ~/.vimrc
-    echo "call plug#begin('~/.vim/plugged')" >> ~/.vimrc
-
-    echo "" >> ~/.vimrc
-    echo "\" fzf plugin" >> ~/.vimrc
-    echo "Plug 'junegunn/fzf'" >> ~/.vimrc
-    echo "map ; :FZF<CR>" >> ~/.vimrc
-
-    echo "" >> ~/.vimrc
-    echo "\" lightline plugin" >> ~/.vimrc
-    echo "Plug 'itchyny/lightline.vim'" >> ~/.vimrc
-
-    echo "" >> ~/.vimrc
-    echo "\" gitgutter plugin" >> ~/.vimrc
-    echo "Plug 'airblade/vim-gitgutter'" >> ~/.vimrc
-    echo "autocmd VimEnter * GitGutter" >> ~/.vimrc
-
-    echo "" >> ~/.vimrc
-    echo "call plug#end()" >> ~/.vimrc
-
-    # Installing vim plugins in the post_install step
-    post_install_add 'vim -c :PlugInstall &'
-}
-
-package_required "vim-syntastic" && {
-    sudo apt-get install vim-syntastic
-    echo "" >> ~/.vimrc
-    echo "\" Syntastic options" >> ~/.vimrc
-    echo "set statusline+=%#warningmsg#" >> ~/.vimrc
-    echo "set statusline+=%{SyntasticStatuslineFlag()}" >> ~/.vimrc
-    echo "set statusline+=%*" >> ~/.vimrc
-    echo "let g:syntastic_always_populate_loc_list = 1" >> ~/.vimrc
-    echo "let g:syntastic_auto_loc_list = 1" >> ~/.vimrc
-    echo "let g:syntastic_check_on_open = 1" >> ~/.vimrc
-    echo "let g:syntastic_check_on_wq = 0" >> ~/.vimrc
-    echo "let g:syntastic_sh_checkers = ['shellcheck', 'sh']" >> ~/.vimrc
-    echo "let g:syntastic_shell = \"/bin/bash\"" >> ~/.vimrc
-}
-
 package_required "your_package" && {
     color_echo 0 GREEN "Do stuff here needed for your_package"
 }

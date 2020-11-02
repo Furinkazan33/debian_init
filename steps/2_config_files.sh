@@ -11,7 +11,7 @@ MY_HOME=~
 echo
 color_echo 0 PURPLE "Copying config files..."
 for file in `ls -A ./config`; do
-    cp ./config/$file "${MY_HOME}"/
+    cp -pr ./config/$file "${MY_HOME}"/
 done
 
 echo
