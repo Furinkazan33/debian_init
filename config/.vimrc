@@ -106,6 +106,16 @@ set laststatus=2
 nnoremap j gj
 nnoremap k gk
 
+" Airline theme
+let g:airline_theme='bubblegum'
+
+"colorscheme gruvbox8_soft
+"colorscheme gruvbox8
+colorscheme gruvbox8_hard
+
+"set bg=light
+set bg=dark
+
 """"""""""""""""""""""""""""""
 " Searching
 """"""""""""""""""""""""""""""
